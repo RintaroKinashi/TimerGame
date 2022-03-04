@@ -6,10 +6,14 @@ body {
 
 .container {
   margin: 20px auto;
-  width: 270px;
+  width: 50%; max-width: 500px;
   background: #fff;
   padding: 15px;
   text-align: center;
+}
+
+#message {
+  font-weight: bold;
 }
 
 .btns {
@@ -18,13 +22,17 @@ body {
 }
 
 .btn{
-  width: 80px;
+  width: 30%;
   height: 45px;
   line-height: 45px;
   background: #ddd;
   font-weight: bold;
   cursor: pointer;
   user-select: none;
+}
+
+#result {
+  margin: 15px 0 15px;
 }
 
 .inactive {
@@ -36,5 +44,45 @@ body {
   height: 120px;
   line-height: 120px;
   font-size: 40px;
-  margin-bottom:  15px;
+  margin: 15px 0 15px;
+}
+
+/* ウィンドウ幅が0〜479pxの場合に適用するCSS */
+@media screen and ( max-width:479px )
+{
+
+.container {
+  margin: 20px auto;
+  width: 90%;
+  background: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn{
+  width: 30%;
+  height: 45px;
+  line-height: 45px;
+  background: #ddd;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+#result {
+  margin: 15px 0 15px;
+}
+
+#timer {
+  background: #ddd;
+  height: 120px;
+  line-height: 120px;
+  font-size: 40px;
+  margin: 15px 0 15px;
+}
 }
