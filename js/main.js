@@ -22,21 +22,21 @@
   }
 
   function setButtonStateInitial() {
-    start.disabled = false;
-    stop.disabled = true;
-    reset.disabled = true;
+    start.classList.remove('inactive');
+    stop.classList.add('inactive');
+    reset.classList.add('inactive');
   }
 
   function setButtonStateRunning() {
-    start.disabled = true;
-    stop.disabled = false;
-    reset.disabled = true;
+    start.classList.add('inactive');
+    stop.classList.remove('inactive');
+    reset.classList.add('inactive');
   }
 
   function setButtonStateStopped() {
-    start.disabled = true;
-    stop.disabled = true;
-    reset.disabled = false;
+    start.classList.add('inactive');
+    stop.classList.add('inactive');
+    reset.classList.remove('inactive');
   }
 
   // イベント
@@ -44,17 +44,20 @@
   setButtonStateInitial();
 
   start.addEventListener('click', () => {
+    if (start.classList.contains('inactive')) return;
     setButtonStateRunning();
     startTime = Date.now();
     countUp();
   });
 
   stop.addEventListener('click', () => {
+    if (stop.classList.contains('inactive')) return;
     setButtonStateStopped();
     clearTimeout(timeoutId);
   });
 
   reset.addEventListener('click', () => {
+    if (reset.classList.contains('inactive')) return;
     setButtonStateInitial();
     timer.textContent = '00.000';
   });
