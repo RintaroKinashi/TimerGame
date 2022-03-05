@@ -14,7 +14,7 @@
   let resultTime;
 
   // 関数
-
+  // カウントアップ関数
   function countUp() {
     const elapsedTime = new Date(Date.now() - startTime);
     const elapsedSeconds = String(elapsedTime.getSeconds()).padStart(2, '0');
@@ -26,7 +26,7 @@
       timer.textContent = resultTime;
     } else if (elapsedSeconds > 20) {
       clearTimeout(timeoutId);
-      location.reload();
+      resetGame();
     } else {
       timer.textContent = "（☝ ՞ਊ ՞）☝ ｹﾞﾋﾟｬｯ";
       timer.style.fontSize = '20px';
@@ -34,6 +34,7 @@
     timeoutId = setTimeout(() => {countUp();}, 10);
   }
 
+  // 結果メッセージ表示
   function showResultMessage(targetTime, resultTime) {
     let diff = (resultTime - targetTime).toFixed(2);
 
@@ -48,6 +49,24 @@
       result.insertAdjacentText('beforeend', 'ﾎﾞｸﾉﾎｳｶﾞｼﾞｮｳｽﾞﾀﾞﾖ ');
     }
     result.insertAdjacentText('beforeend', '٩( ᐛ )و');
+  }
+
+  function startGame() {
+    setButtonStateRunning();
+    startTime = Date.now();
+    countUp();
+  }
+
+  function stopGame() {
+    setButtonStateStopped();
+    clearTimeout(timeoutId);
+    timer.textContent = resultTime;
+    timer.style.fontSize = '40px';
+    showResultMessage(targetTime, resultTime);
+  }
+
+  function resetGame() {
+    location.reload();
   }
 
   function setButtonStateInitial() {
@@ -71,26 +90,36 @@
   // イベント
 
   setButtonStateInitial();
-  message.textContent = targetTime + "秒ピッタリで止めてみましょう！";
+  message.innerText = targetTime + ".00秒ピッタリで止めてみましょう！\n3秒後にタイマーが隠れます！";
+
+  if (document.documentElement.clientWidth >= 479) {
+    result.innerText = 'Enterｷｰﾀﾞｹﾃﾞｿｳｻﾃﾞｷﾙﾖ〜\n ٩( ᐛ )و';
+  }
 
   start.addEventListener('click', () => {
     if (start.classList.contains('inactive')) return;
-    setButtonStateRunning();
-    startTime = Date.now();
-    countUp();
+    startGame();
   });
 
   stop.addEventListener('click', () => {
     if (stop.classList.contains('inactive')) return;
-    setButtonStateStopped();
-    clearTimeout(timeoutId);
-    timer.textContent = resultTime;
-    timer.style.fontSize = '40px';
-    showResultMessage(targetTime, resultTime)
+    stopGame();
   });
 
   reset.addEventListener('click', () => {
     if (reset.classList.contains('inactive')) return;
-    location.reload();
+    resetGame();
   });
+
+  document.addEventListener('keydown', e => {
+    if (e.code === "Enter") {
+    if (!(start.classList.contains('inactive'))) {
+      startGame();
+    } else if (!(stop.classList.contains('inactive'))) {
+      stopGame();
+    } else {
+      resetGame();
+    }
+    }
+  })
 }
