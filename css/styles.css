@@ -47,6 +47,27 @@ body {
   margin: 15px 0 15px;
 }
 
+#footerbar {
+	width:100%; height:100px; 	/*メインメニュー部分の幅と高さ*/
+	margin:0;
+	padding: 0;
+	list-style-type: none;
+	background-color: #ddd;
+}
+
+#footerbar p{
+	display:block;			/*リンク部分をブロック表示にする*/
+	padding: 30px 30px;	/*上パディング*/
+	text-align:center;		/*テキストをセンター揃えにする*/
+	text-decoration:none;		/*リンク部分を下線無しにする*/
+	font-size: 15px;
+}
+
+#footerbar a{
+  color:inherit;
+  text-decoration:none;
+}
+
 /* ウィンドウ幅が0〜479pxの場合に適用するCSS */
 @media screen and ( max-width:479px )
 {
