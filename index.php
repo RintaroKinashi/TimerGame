@@ -1,3 +1,12 @@
+<?php
+// 表示時にランキングへ出力する処理
+
+// $stmt = $dbh->prepare("SELECT * FROM r_answer");
+// $stmt->execute();
+// $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -9,8 +18,7 @@
 
 <body>
   <div class="container">
-    <div id="message">
-    </div>
+    <div id="message"></div>
     <div id="timer">00.00</div>
     <div id="result">ﾔｯﾃﾐﾖｳ!<br>٩( ᐛ )و</div>
     <div class="btns">
@@ -20,7 +28,19 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <div class="container" id="hide">
+    <p>\new record!/ 記録を残そう！</p>
+    <form action="php/insert.php" method="post" name="recode" id="form_recode">
+      <input type="hidden" name="num_diffrrence" id="num_diffrrence"></input>
+      なまえ : <input type="text" class="playerName" name="txt_name" placeholder="名前を入力する..."></input>
+      <input type="hidden" name="num_target" id="num_target"></input>
+      <input type="submit" value="登録" id="send-recode">
+    </form>
+
+  </div>
+
+  <script src=" js/main.js">
+  </script>
 </body>
 
 <footer>

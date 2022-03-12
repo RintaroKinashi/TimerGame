@@ -35,6 +35,15 @@ body {
   margin: 15px 0 15px;
 }
 
+.hide {
+  margin: 20px auto;
+  width: 50%; max-width: 500px;
+  background: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+
 .inactive {
   opacity: 0.6;
 }
