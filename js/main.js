@@ -46,7 +46,9 @@
     result.innerText = "誤差：" + diff + '秒\n ';
     if (diff === 0) {
       result.insertAdjacentText('beforeend', 'ﾋﾟｯﾀﾘﾀﾞ!ｽｺﾞｲ! ');
-    } else if (Math.abs(diff) <= 0.5){
+    } else if (Math.abs(diff) <= 0.05){
+      result.insertAdjacentText('beforeend', 'ｵｼｽｷﾞｨ! ');
+    } else if (Math.abs(diff) <= 0.3){
       result.insertAdjacentText('beforeend', 'ｵｼｲ!ｱﾄﾁｮｯﾄ! ');
     } else if (Math.abs(diff) <= 1){
       result.insertAdjacentText('beforeend', 'ｲｲｶﾝｼﾞｨ ');

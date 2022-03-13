@@ -1,9 +1,13 @@
 <?php
 // 表示時にランキングへ出力する処理
 
-// $stmt = $dbh->prepare("SELECT * FROM r_answer");
+// require 'database.php';
+
+// $dbh = getDatabaseConnection();
+
+// $stmt = $dbh->prepare("SELECT * FROM r_score ORDER BY num_diffrrence DESC");
 // $stmt->execute();
-// $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// $recodes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -41,6 +45,30 @@
 
   <script src=" js/main.js">
   </script>
+
+  <div class="container">
+    <p>\ 誤差0.05秒以下レコード /</p>
+    <center>
+      <table id="score_table">
+        <tr id="score_table_header">
+          <th>誤差</th>
+          <th>名前</th>
+          <th>目標値</th>
+          <th>時刻</th>
+        </tr>
+        <tr>
+          <?php //foreach ($recodes as $recode) {
+          ?>
+          <td>0.04</td>
+          <td>たらお</td>
+          <td>9秒</td>
+          <td>2022/02/03 23:22:15</td>
+          <?php //}
+          ?>
+        </tr>
+      </table>
+    </center>
+  </div>
 </body>
 
 <footer>
