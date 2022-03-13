@@ -7,11 +7,16 @@
   const stop = document.getElementById('stop');
   const reset = document.getElementById('reset');
   const result = document.getElementById('result');
+  const hide = document.getElementById('hide');
+  const form_recode = document.getElementById('form_recode');
+  const num_target = document.getElementById('num_target');
+  const num_diffrrence = document.getElementById('num_diffrrence');
 
   let startTime;
   let timeoutId;
   let targetTime = Math.floor((Math.random() * 4) + 6);
   let resultTime;
+  let diff;
 
   // 関数
   // カウントアップ関数
@@ -36,12 +41,14 @@
 
   // 結果メッセージ表示
   function showResultMessage(targetTime, resultTime) {
-    let diff = (resultTime - targetTime).toFixed(2);
+    diff = (resultTime - targetTime).toFixed(2);
 
     result.innerText = "誤差：" + diff + '秒\n ';
     if (diff === 0) {
       result.insertAdjacentText('beforeend', 'ﾋﾟｯﾀﾘﾀﾞ!ｽｺﾞｲ! ');
-    } else if (Math.abs(diff) <= 0.5){
+    } else if (Math.abs(diff) <= 0.05){
+      result.insertAdjacentText('beforeend', 'new recode! ');
+    } else if (Math.abs(diff) <= 0.3){
       result.insertAdjacentText('beforeend', 'ｵｼｲ!ｱﾄﾁｮｯﾄ! ');
     } else if (Math.abs(diff) <= 1){
       result.insertAdjacentText('beforeend', 'ｲｲｶﾝｼﾞｨ ');
@@ -63,10 +70,21 @@
     timer.textContent = resultTime;
     timer.style.fontSize = '40px';
     showResultMessage(targetTime, resultTime);
+    num_target.value = targetTime;
+    num_diffrrence.value = diff;
+    if (Math.abs(diff) <= 0.05){
+      hide.style.display="block";
+    } else {
+      hide.style.display="none";
+    }
   }
 
   function resetGame() {
-    location.reload();
+    if (hide.style.display === "block"){
+      form_recode.submit();
+    } else{
+      location.reload();
+    };
   }
 
   function setButtonStateInitial() {
@@ -90,6 +108,7 @@
   // イベント
 
   setButtonStateInitial();
+  hide.style.display="none";
   message.innerText = targetTime + ".00秒ピッタリで止めてみましょう！\n3秒後にタイマーが隠れます！";
 
   if (document.documentElement.clientWidth >= 479) {
@@ -122,4 +141,6 @@
     }
     }
   })
+
+  $('td:contains("ここに単語を入れる")').parent("tr").css("background-color", "#FFDBC9");
 }

@@ -35,6 +35,15 @@ body {
   margin: 15px 0 15px;
 }
 
+.hide {
+  margin: 20px auto;
+  width: 50%; max-width: 500px;
+  background: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+
 .inactive {
   opacity: 0.6;
 }
@@ -45,6 +54,19 @@ body {
   line-height: 120px;
   font-size: 40px;
   margin: 15px 0 15px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr:nth-child(odd) {
+  background-color:  #ddd;    /* 背景色指定 */
+}
+
+th, td {
+  border: solid 1px;
+  padding: 10px;
 }
 
 #footerbar {
