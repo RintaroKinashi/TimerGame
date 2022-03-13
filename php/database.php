@@ -8,7 +8,7 @@
 function getDatabaseConnection()
 {
   try {
-    $dsn = 'mysql:dbname=timergame;charset=utf8';
+    $dsn = 'mysql:dbname=timergame;charset=utf8mb4';
     $user = 'root';
     $password = 'root';
     $dbh = new PDO($dsn, $user, $password, [

@@ -138,4 +138,6 @@
     }
     }
   })
+
+  $('td:contains("ここに単語を入れる")').parent("tr").css("background-color", "#FFDBC9");
 }

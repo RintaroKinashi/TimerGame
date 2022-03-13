@@ -1,13 +1,23 @@
 <?php
 // 表示時にランキングへ出力する処理
 
-// require 'database.php';
+require 'php/database.php';
 
-// $dbh = getDatabaseConnection();
+$dbh = getDatabaseConnection();
 
-// $stmt = $dbh->prepare("SELECT * FROM r_score ORDER BY num_diffrrence DESC");
-// $stmt->execute();
-// $recodes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+try {
+  $stmt = $dbh->query("SELECT * FROM r_score ORDER BY insert_time desc");
+  $recodes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (Throwable $e) {
+  echo $e->getMessage();
+  exit;
+}
+
+function h($str)
+{
+  return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+}
 
 ?>
 
@@ -56,16 +66,16 @@
           <th>目標値</th>
           <th>時刻</th>
         </tr>
-        <tr>
-          <?php //foreach ($recodes as $recode) {
-          ?>
-          <td>0.04</td>
-          <td>たらお</td>
-          <td>9秒</td>
-          <td>2022/02/03 23:22:15</td>
-          <?php //}
-          ?>
-        </tr>
+        <?php foreach ($recodes as $recode) {
+        ?>
+          <tr>
+            <td><?php echo h($recode['num_diffrrence']); ?></td>
+            <td><?php echo h($recode['txt_name']); ?></td>
+            <td><?php echo h($recode['num_target']); ?></td>
+            <td><?php echo h($recode['insert_time']); ?></td>
+          </tr>
+        <?php }
+        ?>
       </table>
     </center>
   </div>
