@@ -14,6 +14,10 @@ $user_name = $_POST['txt_name'];
 // echo $_POST['num_target'] . "</br>";
 
 try {
+  if (abs($_POST['num_diffrrence']) > 0.05) {
+    header("Location: ../index.php");
+    exit;
+  }
   if (strlen($user_name) < 3) {
     $user_name = "通りすがりの挑戦者";
   }

@@ -47,7 +47,7 @@
     if (diff === 0) {
       result.insertAdjacentText('beforeend', 'ﾋﾟｯﾀﾘﾀﾞ!ｽｺﾞｲ! ');
     } else if (Math.abs(diff) <= 0.05){
-      result.insertAdjacentText('beforeend', 'ｵｼｽｷﾞｨ! ');
+      result.insertAdjacentText('beforeend', 'new recode! ');
     } else if (Math.abs(diff) <= 0.3){
       result.insertAdjacentText('beforeend', 'ｵｼｲ!ｱﾄﾁｮｯﾄ! ');
     } else if (Math.abs(diff) <= 1){
@@ -72,8 +72,11 @@
     showResultMessage(targetTime, resultTime);
     num_target.value = targetTime;
     num_diffrrence.value = diff;
-    // レコード更新時にのみhideを表示する
-    hide.style.display="block";
+    if (Math.abs(diff) <= 0.05){
+      hide.style.display="block";
+    } else {
+      hide.style.display="none";
+    }
   }
 
   function resetGame() {
