@@ -57,7 +57,7 @@ function h($str)
   </script>
 
   <div class="container">
-    <p>\ 誤差0.05秒以下レコード /</p>
+    <p>\ 誤差0.05秒以内レコード /</p>
     <center>
       <table id="score_table">
         <tr id="score_table_header">
