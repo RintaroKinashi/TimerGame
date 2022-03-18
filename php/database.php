@@ -8,9 +8,14 @@
 function getDatabaseConnection()
 {
   try {
-    $dsn = 'mysql:dbname=timergame;charset=utf8mb4';
-    $user = 'root';
-    $password = 'root';
+    // $dsn = 'mysql:dbname=timergame;charset=utf8mb4';
+    // $user = 'root';
+    // $password = 'root';
+    $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
+    $db['dbname'] = ltrim($db['path'], '/');
+    $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
+    $user = $db['user'];
+    $password = $db['pass'];
     $dbh = new PDO($dsn, $user, $password, [
       // エラー発生時にエラーを投げる。（エラーコードのみ等ではなく）
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -19,6 +24,9 @@ function getDatabaseConnection()
     ]);
   } catch (PDOException $e) {
     echo "MySQL への接続に失敗しました。<\br>(" . $e->getMessage() . ")";
+    echo $db['dbname'];
+    echo $db['user'];
+    echo $db['pass'];
     exit;
   }
   return $dbh;
