@@ -33,7 +33,10 @@ function h($str)
 
 <body>
   <div class="container">
-    <div id="message"></div>
+    <div id="message">
+      <div id="emphasis"></div> ピッタリで止めてみましょう！
+      <p>3秒後にタイマーが隠れます！</p>
+    </div>
     <div id="timer">00.00</div>
     <div id="result">ﾔｯﾃﾐﾖｳ!<br>٩( ᐛ )و</div>
     <div class="btns">
