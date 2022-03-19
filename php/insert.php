@@ -5,8 +5,6 @@ require 'database.php';
 
 $dbh = getDatabaseConnection();
 
-$user_name = $_POST['txt_name'];
-
 // test
 // echo $user_name . "</br>";
 // echo date("Y/m/d H:i:s") . "</br>";
@@ -14,10 +12,18 @@ $user_name = $_POST['txt_name'];
 // echo $_POST['num_target'] . "</br>";
 
 try {
+  $user_name = (string)filter_input(INPUT_POST, 'txt_name');
+  $token = (string)filter_input(INPUT_POST, 'token');
+
+  if ($_SERVER['REQUEST_METHOD'] !== 'POST' && sha1(session_id()) === $token) {
+    header("Location: ../index.php");
+    exit;
+  }
   if (abs($_POST['num_diffrrence']) > 0.05) {
     header("Location: ../index.php");
     exit;
   }
+
   if (strlen($user_name) < 3) {
     $user_name = "通りすがりの挑戦者";
   }
