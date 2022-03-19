@@ -47,7 +47,7 @@ function h($str)
     <p>\new record!/ 記録を残そう！</p>
     <form action="php/insert.php" method="post" name="recode" id="form_recode">
       <input type="hidden" name="num_diffrrence" id="num_diffrrence"></input>
-      なまえ : <input type="text" class="playerName" name="txt_name" placeholder="名前を入力する..."></input>
+      なまえ : <input type="text" class="playerName" name="txt_name" maxlength="20" placeholder="名前を入力する..."></input>
       <input type="hidden" name="num_target" id="num_target"></input>
       <input type="hidden" name="token" value="<?= h(sha1(session_id())) ?>">
       <input type="submit" value="登録" id="send-recode">
