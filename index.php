@@ -14,6 +14,7 @@ try {
   exit;
 }
 
+// XSS脆弱性対策
 function h($str)
 {
   return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
@@ -48,6 +49,7 @@ function h($str)
       <input type="hidden" name="num_diffrrence" id="num_diffrrence"></input>
       なまえ : <input type="text" class="playerName" name="txt_name" placeholder="名前を入力する..."></input>
       <input type="hidden" name="num_target" id="num_target"></input>
+      <input type="hidden" name="token" value="<?= h(sha1(session_id())) ?>">
       <input type="submit" value="登録" id="send-recode">
     </form>
 
