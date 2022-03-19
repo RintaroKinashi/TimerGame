@@ -33,7 +33,7 @@
       clearTimeout(timeoutId);
       resetGame();
     } else {
-      timer.textContent = "（☝ ՞ਊ ՞）☝ ｹﾞﾋﾟｬｯ";
+      timer.textContent = "٩( ᐛ )و";
       timer.style.fontSize = '20px';
     }
     timeoutId = setTimeout(() => {countUp();}, 10);
