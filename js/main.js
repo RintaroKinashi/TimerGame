@@ -1,7 +1,7 @@
 'use strict'
 
 {
-  const message = document.getElementById('message');
+  const emphasis = document.getElementById('emphasis');
   const timer = document.getElementById('timer');
   const start = document.getElementById('start');
   const stop = document.getElementById('stop');
@@ -109,7 +109,7 @@
 
   setButtonStateInitial();
   hide.style.display="none";
-  message.innerText = targetTime + ".00秒ピッタリで止めてみましょう！\n3秒後にタイマーが隠れます！";
+  emphasis.innerText = targetTime + ".00秒";
 
   if (document.documentElement.clientWidth >= 479) {
     result.innerText = 'Enterｷｰﾀﾞｹﾃﾞｿｳｻﾃﾞｷﾙﾖ〜\n ٩( ᐛ )و';

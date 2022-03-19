@@ -16,6 +16,14 @@ body {
   font-weight: bold;
 }
 
+#emphasis {
+  font-size: 18px;
+  padding: 0.5em;
+  border: solid 2px #000000;
+  display: inline-block;
+  _display: inline;
+}
+
 .btns {
   display: flex;
   justify-content: space-between;
