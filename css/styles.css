@@ -18,7 +18,7 @@ body {
 
 #emphasis {
   font-size: 18px;
-  padding: 0.5em;
+  padding: 5px;
   border: solid 2px #000000;
   display: inline-block;
   _display: inline;

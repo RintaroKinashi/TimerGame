@@ -15,6 +15,8 @@ try {
   $user_name = (string)filter_input(INPUT_POST, 'txt_name');
   $token = (string)filter_input(INPUT_POST, 'token');
 
+  date_default_timezone_set('Asia/Tokyo');
+
   if ($_SERVER['REQUEST_METHOD'] !== 'POST' && sha1(session_id()) === $token) {
     header("Location: ../index.php");
     exit;
