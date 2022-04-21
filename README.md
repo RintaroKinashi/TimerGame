@@ -13,6 +13,13 @@ URL : https://timergame.herokuapp.com/
 * 誤差0.05秒以内でレコード登録ができます
 * PC環境ではEnterキーのみでスタート、ストップ、リスタートボタンを操作できます
 
+# Technology
+* HTML/CSS
+* JavaScript
+* PHP Version 7.4.16
+* MySQL Version 5.7.32
+* Heroku
+
 # Ingenuity
 学習の一環として、フレームワークを使用せずに開発を行っております。
 ワンタイムトークンを使用したCSRF対策、htmlspecialchars関数を使用したクロスサイトスクリプティング対策等、セキュリティ面に配慮したアプリケーションとなっております。
