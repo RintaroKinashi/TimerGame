@@ -4,7 +4,7 @@
 
 もともとVisual Basicで作っていたものをJavaScriptの勉強がてら作り直してみました。
 
-URL : https://timergame.herokuapp.com/
+~URL : https://timergame.herokuapp.com/~
 
 # DEMO
 ![RPReplay_Final1647658541_AdobeCreativeCloudExpress_AdobeCreativeCloudExpress](https://user-images.githubusercontent.com/66721669/159105329-ab604b25-c122-448d-97fb-f00aa03ef1a0.gif)
@@ -25,6 +25,3 @@ URL : https://timergame.herokuapp.com/
 ワンタイムトークンを使用したCSRF対策、htmlspecialchars関数を使用したクロスサイトスクリプティング対策等、セキュリティ面に配慮したアプリケーションとなっております。
 issueを使用したGithub開発等も併せて評価いただけると幸いです。
 
-
-# Author
-* Twitter : https://twitter.com/1119rinritu
